@@ -14,11 +14,6 @@ PARSER:
   SourcesPaths: [lzfse.h]
 
 TRANSLATOR: 
-  ConstRules:
-    defines: eval
-  PtrTips:
-    function:
-      - {target: ^lzfse_, tips: [ref]}
   Rules: 
     global: 
       - {transform: lower}
@@ -29,7 +24,7 @@ TRANSLATOR:
       - {action: replace, from: "_t$"}
       - {transform: export}
     private:
-      - {transform: export}
+      - {transform: unexport}
     post-global: 
       - {action: replace, from: _$}
       - {load: snakecase}
